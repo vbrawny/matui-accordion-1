@@ -46,12 +46,16 @@ export default function SimpleAccordion() {
     }
   });
 
+  const onChangeHandler = (evt) => {
+    console.log("-e--v--t", evt);
+  };
+
   return (
     <div className={classes.root}>
       {Object.keys(accordionOne).map((val) => {
         console.log("--dat--", accordionOne);
         return (
-          <Accordion>
+          <Accordion onChange={() => onChangeHandler(accordionOne[val])}>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
