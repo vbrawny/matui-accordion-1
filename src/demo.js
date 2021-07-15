@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -19,76 +19,52 @@ const useStyles = makeStyles((theme) => ({
 export default function SimpleAccordion() {
   const classes = useStyles();
 
+  const [accordionOne, setAccordionOne] = useState({
+    "1": {
+      id: 1,
+      name: "Opt Liqu"
+    },
+    "2": {
+      id: 2,
+      name: "Opt WrkCpt"
+    },
+    "3": {
+      id: 3,
+      name: "Mit Frd Rs"
+    },
+    "4": {
+      id: 4,
+      name: "Enh Rep"
+    },
+    "5": {
+      id: 5,
+      name: "Impr Trs Ctrl"
+    },
+    "6": {
+      id: 6,
+      name: "Red Cst Strm Ops"
+    }
+  });
+
   return (
     <div className={classes.root}>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography className={classes.heading}>Accordion 11</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          {/* first accordion */}
+      {Object.keys(accordionOne).map((val) => {
+        console.log("--dat--", accordionOne);
+        return (
           <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
-              <Typography className={classes.heading}>Accordion 21</Typography>
+              <Typography className={classes.heading}>
+                {accordionOne[val].name}
+              </Typography>
             </AccordionSummary>
-            <AccordionDetails>
-              {/* second accordion */}
-              <Accordion>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1a-content"
-                  id="panel1a-header"
-                >
-                  <Typography className={classes.heading}>
-                    Accordion 31
-                  </Typography>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <Typography>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
-                  </Typography>
-                </AccordionDetails>
-              </Accordion>
-            </AccordionDetails>
+            <AccordionDetails></AccordionDetails>
           </Accordion>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography className={classes.heading}>Accordion 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion disabled>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography className={classes.heading}>
-            Disabled Accordion
-          </Typography>
-        </AccordionSummary>
-      </Accordion>
+        );
+      })}
     </div>
   );
 }
