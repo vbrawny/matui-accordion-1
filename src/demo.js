@@ -13,6 +13,35 @@ import {
   actionPlans5,
   actionPlans6
 } from "./action-plans";
+import {
+  actionProduct1,
+  actionProduct2,
+  actionProduct3,
+  actionProduct4,
+  actionProduct5,
+  actionProduct6,
+  actionProduct7,
+  actionProduct8,
+  actionProduct9,
+  actionProduct10,
+  actionProduct11,
+  actionProduct12,
+  actionProduct13,
+  actionProduct14,
+  actionProduct15,
+  actionProduct16,
+  actionProduct17,
+  actionProduct18,
+  actionProduct19,
+  actionProduct20,
+  actionProduct21,
+  actionProduct22,
+  actionProduct23,
+  actionProduct24,
+  actionProduct25,
+  actionProduct26,
+  actionProduct27
+} from "./action-products";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -99,7 +128,108 @@ export default function SimpleAccordion() {
     });
   };
 
-  const onActionPlanChangeHnadler = (evt) => {};
+  const onActionPlanChangeHnadler = (evt) => {
+    console.log("---evt--2---", evt);
+    //{id: "1", name: "Acc my fnd"}
+    //{id: "4", name: "mng strg csh"}
+    setAccordionOne((state) => {
+      let currState = state;
+      console.log("--before--", currState);
+      let subchildobj = {};
+      switch (evt.id) {
+        case 1:
+          subchildobj = actionProduct1;
+          break;
+        case 2:
+          subchildobj = actionProduct2;
+          break;
+        case 3:
+          subchildobj = actionProduct3;
+          break;
+        case 4:
+          subchildobj = actionProduct4;
+          break;
+        case 5:
+          subchildobj = actionProduct5;
+          break;
+        case 6:
+          subchildobj = actionProduct6;
+          break;
+        case 7:
+          subchildobj = actionProduct7;
+          break;
+        case 8:
+          subchildobj = actionProduct8;
+          break;
+        case 9:
+          subchildobj = actionProduct9;
+          break;
+        case 10:
+          subchildobj = actionProduct10;
+          break;
+        case 11:
+          subchildobj = actionProduct11;
+          break;
+        case 12:
+          subchildobj = actionProduct12;
+          break;
+        case 13:
+          subchildobj = actionProduct13;
+          break;
+        case 14:
+          subchildobj = actionProduct14;
+          break;
+        case 15:
+          subchildobj = actionProduct15;
+          break;
+        case 16:
+          subchildobj = actionProduct16;
+          break;
+        case 17:
+          subchildobj = actionProduct17;
+          break;
+        case 18:
+          subchildobj = actionProduct18;
+          break;
+        case 19:
+          subchildobj = actionProduct19;
+          break;
+        case 20:
+          subchildobj = actionProduct20;
+          break;
+        case 21:
+          subchildobj = actionProduct21;
+          break;
+        case 22:
+          subchildobj = actionProduct22;
+          break;
+        case 23:
+          subchildobj = actionProduct23;
+          break;
+        case 24:
+          subchildobj = actionProduct24;
+          break;
+        case 25:
+          subchildobj = actionProduct25;
+          break;
+        case 26:
+          subchildobj = actionProduct26;
+          break;
+        default:
+          subchildobj = actionProduct27;
+          break;
+      }
+      // currState = {
+      //   ...currState,
+      //   [evt.id]: {
+      //     ...currState[evt.id],
+      //     children: childobj //actionPlans1
+      //   }
+      // };
+      // console.log("--after--", currState);
+      return currState;
+    });
+  };
 
   return (
     <div className={classes.root}>
@@ -122,7 +252,13 @@ export default function SimpleAccordion() {
                   Object.keys(accordionOne[val].children).map((preval) => {
                     console.log("--dat--", accordionOne[val].children);
                     return (
-                      <Accordion>
+                      <Accordion
+                        onChange={() =>
+                          onActionPlanChangeHnadler(
+                            accordionOne[val].children[preval]
+                          )
+                        }
+                      >
                         <AccordionSummary
                           expandIcon={<ExpandMoreIcon />}
                           aria-controls="panel1a-content"
