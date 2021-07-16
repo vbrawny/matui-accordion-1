@@ -99,6 +99,8 @@ export default function SimpleAccordion() {
     });
   };
 
+  const onActionPlanChangeHnadler = (evt) => {};
+
   return (
     <div className={classes.root}>
       {Object.keys(accordionOne).map((val) => {
@@ -115,24 +117,26 @@ export default function SimpleAccordion() {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              {accordionOne[val].children &&
-                Object.keys(accordionOne[val].children).map((preval) => {
-                  console.log("--dat--", accordionOne[val].children);
-                  return (
-                    <Accordion>
-                      <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                      >
-                        <Typography className={classes.heading}>
-                          {accordionOne[val].children[preval].name}
-                        </Typography>
-                      </AccordionSummary>
-                      <AccordionDetails></AccordionDetails>
-                    </Accordion>
-                  );
-                })}
+              <div>
+                {accordionOne[val].children &&
+                  Object.keys(accordionOne[val].children).map((preval) => {
+                    console.log("--dat--", accordionOne[val].children);
+                    return (
+                      <Accordion>
+                        <AccordionSummary
+                          expandIcon={<ExpandMoreIcon />}
+                          aria-controls="panel1a-content"
+                          id="panel1a-header"
+                        >
+                          <Typography className={classes.heading}>
+                            {accordionOne[val].children[preval].name}
+                          </Typography>
+                        </AccordionSummary>
+                        <AccordionDetails></AccordionDetails>
+                      </Accordion>
+                    );
+                  })}
+              </div>
             </AccordionDetails>
           </Accordion>
         );
