@@ -128,8 +128,9 @@ export default function SimpleAccordion() {
     });
   };
 
-  const onActionPlanChangeHnadler = (evt) => {
-    console.log("---evt--2---", evt);
+  const onActionPlanChangeHnadler = (mstevt, evt) => {
+    console.log("---evt--2--mstevt--", mstevt);
+    console.log("---evt--2--evt--", evt);
     //{id: "1", name: "Acc my fnd"}
     //{id: "4", name: "mng strg csh"}
     setAccordionOne((state) => {
@@ -255,6 +256,7 @@ export default function SimpleAccordion() {
                       <Accordion
                         onChange={() =>
                           onActionPlanChangeHnadler(
+                            accordionOne[val],
                             accordionOne[val].children[preval]
                           )
                         }
