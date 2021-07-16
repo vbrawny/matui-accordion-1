@@ -135,7 +135,7 @@ export default function SimpleAccordion() {
     //{id: "4", name: "mng strg csh"}
     setAccordionOne((state) => {
       let currState = state;
-      console.log("--before--", currState);
+      console.log("--sub-before--", currState);
       let subchildobj = {};
       switch (evt.id) {
         case 1:
@@ -220,14 +220,18 @@ export default function SimpleAccordion() {
           subchildobj = actionProduct27;
           break;
       }
-      // currState = {
-      //   ...currState,
-      //   [evt.id]: {
-      //     ...currState[evt.id],
-      //     children: childobj //actionPlans1
-      //   }
-      // };
-      // console.log("--after--", currState);
+      currState = {
+        ...currState,
+        [mstevt.id]: {
+          ...currState[mstevt.id],
+          children: {
+            ...currState[mstevt.id].children,
+            children: subchildobj
+          }
+          //actionPlans1
+        }
+      };
+      console.log("--sub-after--", currState);
       return currState;
     });
   };
