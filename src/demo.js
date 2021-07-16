@@ -114,7 +114,26 @@ export default function SimpleAccordion() {
                 {accordionOne[val].name}
               </Typography>
             </AccordionSummary>
-            <AccordionDetails></AccordionDetails>
+            <AccordionDetails>
+              {accordionOne[val].children &&
+                Object.keys(accordionOne[val].children).map((preval) => {
+                  console.log("--dat--", accordionOne[val].children);
+                  return (
+                    <Accordion>
+                      <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                      >
+                        <Typography className={classes.heading}>
+                          {accordionOne[val].children[preval].name}
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails></AccordionDetails>
+                    </Accordion>
+                  );
+                })}
+            </AccordionDetails>
           </Accordion>
         );
       })}
