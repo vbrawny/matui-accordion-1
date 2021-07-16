@@ -226,7 +226,11 @@ export default function SimpleAccordion() {
           ...currState[mstevt.id],
           children: {
             ...currState[mstevt.id].children,
-            children: subchildobj
+            [evt.id]: {
+              ...currState[mstevt.id].children[evt.id],
+              children: subchildobj
+            }
+            //children: subchildobj
           }
           //actionPlans1
         }
