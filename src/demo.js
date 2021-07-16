@@ -138,82 +138,82 @@ export default function SimpleAccordion() {
       console.log("--sub-before--", currState);
       let subchildobj = {};
       switch (evt.id) {
-        case 1:
+        case "1":
           subchildobj = actionProduct1;
           break;
-        case 2:
+        case "2":
           subchildobj = actionProduct2;
           break;
-        case 3:
+        case "3":
           subchildobj = actionProduct3;
           break;
-        case 4:
+        case "4":
           subchildobj = actionProduct4;
           break;
-        case 5:
+        case "5":
           subchildobj = actionProduct5;
           break;
-        case 6:
+        case "6":
           subchildobj = actionProduct6;
           break;
-        case 7:
+        case "7":
           subchildobj = actionProduct7;
           break;
-        case 8:
+        case "8":
           subchildobj = actionProduct8;
           break;
-        case 9:
+        case "9":
           subchildobj = actionProduct9;
           break;
-        case 10:
+        case "10":
           subchildobj = actionProduct10;
           break;
-        case 11:
+        case "11":
           subchildobj = actionProduct11;
           break;
-        case 12:
+        case "12":
           subchildobj = actionProduct12;
           break;
-        case 13:
+        case "13":
           subchildobj = actionProduct13;
           break;
-        case 14:
+        case "14":
           subchildobj = actionProduct14;
           break;
-        case 15:
+        case "15":
           subchildobj = actionProduct15;
           break;
-        case 16:
+        case "16":
           subchildobj = actionProduct16;
           break;
-        case 17:
+        case "17":
           subchildobj = actionProduct17;
           break;
-        case 18:
+        case "18":
           subchildobj = actionProduct18;
           break;
-        case 19:
+        case "19":
           subchildobj = actionProduct19;
           break;
-        case 20:
+        case "20":
           subchildobj = actionProduct20;
           break;
-        case 21:
+        case "21":
           subchildobj = actionProduct21;
           break;
-        case 22:
+        case "22":
           subchildobj = actionProduct22;
           break;
-        case 23:
+        case "23":
           subchildobj = actionProduct23;
           break;
-        case 24:
+        case "24":
           subchildobj = actionProduct24;
           break;
-        case 25:
+        case "25":
           subchildobj = actionProduct25;
           break;
-        case 26:
+        case "26":
           subchildobj = actionProduct26;
           break;
         default:
