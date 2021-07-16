@@ -278,7 +278,42 @@ export default function SimpleAccordion() {
                             {accordionOne[val].children[preval].name}
                           </Typography>
                         </AccordionSummary>
-                        <AccordionDetails></AccordionDetails>
+                        <AccordionDetails>
+                          {/* --- level 3 --- */}
+
+                          <div>
+                            {accordionOne[val].children[preval].children &&
+                              Object.keys(
+                                accordionOne[val].children[preval].children
+                              ).map((smallVal) => {
+                                console.log(
+                                  "--dat--",
+                                  accordionOne[val].children[preval].children
+                                );
+                                return (
+                                  <Accordion>
+                                    <AccordionSummary
+                                      expandIcon={<ExpandMoreIcon />}
+                                      aria-controls="panel1a-content"
+                                      id="panel1a-header"
+                                    >
+                                      <Typography className={classes.heading}>
+                                        {
+                                          accordionOne[val].children[preval]
+                                            .children[smallVal].name
+                                        }
+                                      </Typography>
+                                    </AccordionSummary>
+                                    <AccordionDetails>
+                                      <p>Products</p>
+                                    </AccordionDetails>
+                                  </Accordion>
+                                );
+                              })}
+                          </div>
+
+                          {/*-----------------------------*/}
+                        </AccordionDetails>
                       </Accordion>
                     );
                   })}
