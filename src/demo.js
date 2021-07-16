@@ -5,6 +5,14 @@ import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import {
+  actionPlans1,
+  actionPlans2,
+  actionPlans3,
+  actionPlans4,
+  actionPlans5,
+  actionPlans6
+} from "./action-plans";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -48,6 +56,47 @@ export default function SimpleAccordion() {
 
   const onChangeHandler = (evt) => {
     console.log("-e--v--t", evt);
+    //{id: 1, name: "Opt Liqu"}
+    setAccordionOne((state) => {
+      let currState = state;
+      console.log("--before--", currState);
+      let childobj = {};
+      switch (evt.id) {
+        case 1:
+          childobj = actionPlans1;
+          break;
+        case 2:
+          childobj = actionPlans2;
+          break;
+        case 3:
+          childobj = actionPlans3;
+          break;
+        case 4:
+          childobj = actionPlans4;
+          break;
+        case 5:
+          childobj = actionPlans5;
+          break;
+        default:
+          childobj = actionPlans6;
+          break;
+      }
+      /*
+        "1": {
+      id: 1,
+      name: "Opt Liqu"
+    }
+      */
+      currState = {
+        ...currState,
+        [evt.id]: {
+          ...currState[evt.id],
+          children: childobj //actionPlans1
+        }
+      };
+      console.log("--after--", currState);
+      return currState;
+    });
   };
 
   return (
